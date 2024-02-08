@@ -17,11 +17,10 @@ import java.util.Properties;
 
 public class BaseClass {
     public WebDriver driver;
-    public Logger logger;
     public Properties p;
 
 
-    @BeforeClass
+    @BeforeClass (groups={"sanity","regression","master"})
     @Parameters({"os", "browser"})
     public void setup(String os, String br) throws IOException
 
@@ -30,10 +29,6 @@ public class BaseClass {
         FileReader file=new FileReader(".//src//test//java//resources//config.properties");
         p=new Properties();
         p.load(file);
-
-
-        //loading log4j file
-        logger=LogManager.getLogger(this.getClass());//Log4j
 
         //launching browser based on condition
         switch(br.toLowerCase())
@@ -51,7 +46,7 @@ public class BaseClass {
         driver.manage().window().maximize();
     }
 
-    @AfterClass
+    @AfterClass (groups={"sanity","regression","master"})
     public void tearDown()
     {
         driver.close();
