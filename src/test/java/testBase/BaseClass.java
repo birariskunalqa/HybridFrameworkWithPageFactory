@@ -24,7 +24,6 @@ public class BaseClass {
     static public WebDriver driver;
     public Properties p;
 
-
     @BeforeClass (groups={"sanity","regression","master"})
     @Parameters({"os", "browser"})
     public void setup(String os, String br) throws IOException
@@ -57,27 +56,6 @@ public class BaseClass {
         driver.close();
     }
 
-
-    public String randomString()
-    {
-        String generatedString=RandomStringUtils.randomAlphabetic(5);
-        return generatedString;
-    }
-
-    public String randomNumber()
-    {
-        String generatedString=RandomStringUtils.randomNumeric(10);
-        return generatedString;
-    }
-
-    public String randomAlphaNumeric()
-    {
-        String str=RandomStringUtils.randomAlphabetic(3);
-        String num=RandomStringUtils.randomNumeric(3);
-
-        return (str+"@"+num);
-    }
-
     public String captureScreen(String tname) throws IOException {
 
         String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -91,6 +69,5 @@ public class BaseClass {
         sourceFile.renameTo(targetFile);
 
         return targetFilePath;
-
     }
 }

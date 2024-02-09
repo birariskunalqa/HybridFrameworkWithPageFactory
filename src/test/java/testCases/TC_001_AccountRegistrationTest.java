@@ -6,6 +6,8 @@ import pageObjects.AccountRegistrationPage;
 import pageObjects.HomePage;
 import testBase.BaseClass;
 
+import static utilities.RandomDataGenerator.*;
+
 public class TC_001_AccountRegistrationTest extends BaseClass {
 
     @Test(groups= {"sanity","master"})
